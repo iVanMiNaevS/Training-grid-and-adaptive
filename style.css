@@ -40,14 +40,15 @@ header {
 .drop-menu {
     position: absolute;
     display: none;
-    right: 0;
     background-color: pink;
     width: 70%;
+    top: 0;
+    right: 0;
     height: 100vh;
     transition-duration: 0.5s;
 }
 .drop-menu.hide {
-    right: -70%;
+    transform: translateX(100%);
 }
 
 .logo {
