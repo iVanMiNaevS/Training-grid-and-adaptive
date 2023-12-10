@@ -3,18 +3,73 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: #333;
     height: 100vh;
+    overflow-x: hidden;
 }
 h1 {
     text-align: center;
 }
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: white;
     font-size: 30px;
     text-align: center;
     background-color: blue;
     margin-bottom: 30px;
+}
+.menu-burger {
+    position: relative;
+    z-index: 2;
+    display: none;
+    width: 47px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.row {
+    height: 15%;
+    width: 100%;
+    background-color: white;
+}
+.drop-menu {
+    position: absolute;
+    display: none;
+    right: 0;
+    background-color: pink;
+    width: 70%;
+    height: 100vh;
+    transition-duration: 0.5s;
+}
+.drop-menu.hide {
+    right: -70%;
+}
+
+.logo {
+    width: 130px;
+    font-size: 40px;
+    cursor: pointer;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+.link {
+    transition-duration: 0.2s;
+}
+.link:hover {
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+.basket {
+    width: 130px;
+    cursor: pointer;
 }
 footer {
     text-align: center;
@@ -25,8 +80,7 @@ footer {
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 100px 1fr 100px;
-    height: 100%;
+    grid-template-rows: 100px 1fr 100px;
     max-width: 1400px;
     margin: auto;
 }
@@ -123,10 +177,10 @@ button {
         gap: 10px;
     }
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .container {
-        max-width: 90%;
-        grid-template-rows: 70px 100px 1fr 100px;
+        max-width: 100%;
+        grid-template-rows: 100px 1fr 100px;
     }
     main {
         display: grid;
@@ -135,5 +189,15 @@ button {
     }
     h1 {
         font-size: 25px;
+    }
+    .drop-menu {
+        display: block;
+    }
+    nav,
+    .basket {
+        display: none;
+    }
+    .menu-burger {
+        display: flex;
     }
 }
