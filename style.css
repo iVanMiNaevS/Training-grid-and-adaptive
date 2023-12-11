@@ -3,11 +3,16 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+html {
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
 body {
     background-color: #333;
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
+    position: relative;
 }
 h1 {
     text-align: center;
@@ -31,6 +36,7 @@ header {
     height: 30px;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
 }
 .row {
     height: 15%;
@@ -38,19 +44,45 @@ header {
     background-color: white;
 }
 .drop-menu {
-    position: absolute;
+    overflow-y: scroll;
+    position: fixed;
     display: none;
-    background-color: pink;
+    background-color: #333;
     width: 70%;
     top: 0;
     right: 0;
     height: 100vh;
     transition-duration: 0.5s;
+    padding-top: 100px;
+    padding-left: 60px;
+    font-size: 30px;
+    flex-direction: column;
+    gap: 30px;
+    color: white;
 }
 .drop-menu.hide {
     transform: translateX(100%);
+    /* right: -100%; */
 }
-
+.linkMob {
+    position: relative;
+    cursor: pointer;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.linkMob::after {
+    position: absolute;
+    content: ">";
+    right: 30px;
+    top: -3px;
+}
+.one {
+}
+.two {
+}
+.three {
+}
 .logo {
     width: 130px;
     font-size: 40px;
@@ -192,7 +224,7 @@ button {
         font-size: 25px;
     }
     .drop-menu {
-        display: block;
+        display: flex;
     }
     nav,
     .basket {
@@ -200,5 +232,11 @@ button {
     }
     .menu-burger {
         display: flex;
+    }
+}
+@media (max-width: 375px) {
+    .drop-menu {
+        width: 80%;
+        padding-left: 30px;
     }
 }
